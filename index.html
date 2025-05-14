@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MABUCHE - Bois de chauffage premium</title>
+  <style>
+    :root {
+      --marron-fonce: #3A2E28;
+      --marron-texte: #4A3C34;
+      --orange-accent: #8C5E45;
+      --beige-fond: #F5F1EC;
+      --blanc: #FFFFFF;
+      --gris-clair: #D1C7C0;
+      --vert-fonce: #2A5C3A;
+      --dorure: #D4AF37;
+      --ombre: 0 4px 20px rgba(58, 46, 40, 0.1);
+    }
+
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      color: var(--marron-texte);
+      line-height: 1.6;
+    }
+
+    .section {
+      padding: 80px 20px;
+    }
+
+    .section-accueil { background-color: var(--marron-fonce); color: white; }
+    .section-produits { background-color: var(--beige-fond); }
+    .section-offre-premium { background-color: var(--blanc); }
+    .section-services { background-color: var(--beige-fond); }
+    .section-faq { background-color: var(--blanc); }
+    .section-temoignages { background-color: var(--beige-fond); }
+    .section-engagement { background-color: var(--blanc); }
+    .section-contact { background-color: var(--beige-fond); }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--blanc);
+      border: 1px solid var(--gris-clair);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--ombre);
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-premium {
+      border: 2px solid var(--dorure);
+    }
+
+    .products-grid .product-card:nth-child(4) {
+      margin-left: auto;
+    }
+
+    footer {
+      background: var(--marron-fonce);
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-bottom: 10px;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="section section-accueil">
+    <div class="container">
+      <h1>MABUCHE – Le bois de chauffage qui réchauffe votre foyer</h1>
+      <p>Livraison de bois de chauffage sec, local et de qualité</p>
+    </div>
+  </header>
+
+  <section class="section section-produits">
+    <div class="container">
+      <h2>Nos produits</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <h3>Chêne 50 cm</h3>
+          <p>70€/stère</p>
+        </div>
+        <div class="product-card product-premium">
+          <h3>Chêne Premium 50 cm</h3>
+          <p>78€/stère</p>
+        </div>
+        <div class="product-card">
+          <h3>Bois d'allumage</h3>
+          <p>5€/paquet</p>
+        </div>
+        <div class="product-card">
+          <h3>Châtaignier 2 m</h3>
+          <p>55€/stère</p>
+        </div>
+        <div class="product-card product-premium">
+          <h3>Chêne Premium 33 cm</h3>
+          <p>88€/stère</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-offre-premium">
+    <div class="container">
+      <h2>Notre offre premium</h2>
+      <ul>
+        <li>Longueurs disponibles : 35cm, 50cm, 2m</li>
+        <li>Conditionnement : Vrac ou palette</li>
+        <li>Séchage optimal pour rendement maximal</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-services">
+    <div class="container">
+      <h2>Nos services</h2>
+      <ul>
+        <li>Livraison rapide - 0,75€/km</li>
+        <li>Rangement à domicile - 20€/h</li>
+        <li>Précommande avant le 31 août : 15 bûches offertes</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-question">Zone de livraison ?</div>
+        <div class="faq-answer">30 km autour de Saint-Salvary</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Temps de séchage ?</div>
+        <div class="faq-answer">18 mois naturel</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-temoignages">
+    <div class="container">
+      <h2>Témoignages</h2>
+      <blockquote>"Client depuis 3 ans, toujours satisfait." – Jean-Marc B.</blockquote>
+      <blockquote>"Bois bien sec et service excellent." – Marie D.</blockquote>
+    </div>
+  </section>
+
+  <section class="section section-engagement">
+    <div class="container">
+      <h2>Notre engagement qualité</h2>
+      <ul>
+        <li>Bois local = moins d'empreinte carbone</li>
+        <li>Séchage naturel = 18 mois minimum</li>
+        <li>Prêt à brûler = humidité < 20%</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Téléphone : 06 09 88 58 47</p>
+      <p>Email : enzoaudouyschneider@gmail.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3>MABUCHE</h3>
+        <p>Bois de chauffage premium - Saint-Salvary</p>
+      </div>
+      <div>
+        <h3>Navigation</h3>
+        <p>Accueil | Produits | Services | FAQ | Contact</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>06 09 88 58 47<br>enzoaudouyschneider@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentNode;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
