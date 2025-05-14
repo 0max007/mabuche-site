@@ -1,233 +1,1016 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MABUCHE - Bois de chauffage premium</title>
-  <style>
-    :root {
-      --marron-fonce: #3A2E28;
-      --marron-texte: #4A3C34;
-      --orange-accent: #8C5E45;
-      --beige-fond: #F5F1EC;
-      --blanc: #FFFFFF;
-      --gris-clair: #D1C7C0;
-      --vert-fonce: #2A5C3A;
-      --dorure: #D4AF37;
-      --ombre: 0 4px 20px rgba(58, 46, 40, 0.1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mabuche - Bois de chauffage premium livré à domicile en Occitanie. Chêne, châtaignier et bois d'allumage de qualité. Service de livraison et rangement.">
+    <title>MABUCHE - Bois de chauffage premium | Livraison en Occitanie</title>
+    <style>
+        /* PALETTE OPTIMISÉE */
+        :root {
+            --marron-fonce: #3A2E28;
+            --marron-texte: #4A3C34;
+            --orange-accent: #8C5E45;
+            --beige-fond: #F5F1EC;
+            --gris-clair: #D1C7C0;
+            --vert-fonce: #5C3A2A; /* Fond marron */
+            --blanc: #FFFFFF;
+            --doré: #D4AF37;
+            --ombre: 0 4px 20px rgba(58, 46, 40, 0.1);
+        }
 
-    body {
-      font-family: Georgia, serif;
-      margin: 0;
-      padding: 0;
-      color: var(--marron-texte);
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            color: var(--marron-texte);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-    .section {
-      padding: 80px 20px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .section-accueil { background-color: var(--marron-fonce); color: white; }
-    .section-produits { background-color: var(--beige-fond); }
-    .section-offre-premium { background-color: var(--blanc); }
-    .section-services { background-color: var(--beige-fond); }
-    .section-faq { background-color: var(--blanc); }
-    .section-temoignages { background-color: var(--beige-fond); }
-    .section-engagement { background-color: var(--blanc); }
-    .section-contact { background-color: var(--beige-fond); }
+        /* EN-TÊTE */
+        header {
+            background: var(--blanc);
+            padding: 15px 0;
+            box-shadow: var(--ombre);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s;
+        }
 
-    h1, h2 {
-      text-align: center;
-    }
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--marron-fonce);
+            text-align: center;
+            letter-spacing: 1px;
+            margin: 10px 0;
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 0;
+        }
 
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
+        nav a {
+            text-decoration: none;
+            color: var(--marron-fonce);
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
 
-    .product-card {
-      background: var(--blanc);
-      border: 1px solid var(--gris-clair);
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: var(--ombre);
-      transition: transform 0.3s;
-    }
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange-accent);
+            transition: width 0.3s;
+        }
 
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
+        nav a:hover:after,
+        nav a:focus:after {
+            width: 100%;
+        }
 
-    .product-premium {
-      border: 2px solid var(--dorure);
-    }
+        nav a:hover,
+        nav a:focus {
+            color: var(--orange-accent);
+        }
 
-    .products-grid .product-card:nth-child(4) {
-      margin-left: auto;
-    }
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(58, 46, 40, 0.7), rgba(58, 46, 40, 0.7)), 
+                        url('https://images.unsplash.com/photo-1514473776127-61e2dc184d5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+        }
 
-    footer {
-      background: var(--marron-fonce);
-      color: white;
-      padding: 40px 20px;
-    }
+        .hero-content {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 50px;
+            border-radius: 8px;
+            border: 1px solid var(--gris-clair);
+            box-shadow: var(--ombre);
+            margin: 0 auto;
+        }
 
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
-    }
+        .hero h1 {
+            font-size: 28px;
+            color: var(--marron-fonce);
+            margin-bottom: 20px;
+        }
 
-    .faq-question {
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+        .hero p {
+            color: var(--marron-texte);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
 
-    .faq-answer {
-      display: none;
-      margin-bottom: 10px;
-    }
+        /* BLOCS ENCADRÉS */
+        .encadre {
+            background: var(--blanc);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid var(--gris-clair);
+            box-shadow: var(--ombre);
+            transition: all 0.3s;
+        }
 
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-  </style>
+        .encadre:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(58, 46, 40, 0.15);
+        }
+
+        .encadre-premium {
+            border: 2px solid var(--doré);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* PRODUITS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .product-card {
+            background: var(--blanc);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--gris-clair);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-card.premium {
+            border: 2px solid var(--doré);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .product-header {
+            background: rgba(140, 94, 69, 0.1);
+            padding: 20px;
+            border-bottom: 1px solid var(--gris-clair);
+        }
+
+        .product-header.premium {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .product-title {
+            font-size: 20px;
+            color: var(--marron-fonce);
+            margin: 0;
+        }
+
+        .product-body {
+            padding: 20px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: var(--orange-accent);
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .product-details {
+            color: var(--marron-texte);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--gris-clair);
+        }
+
+        /* BOUTONS */
+        .btn {
+            display: inline-block;
+            background: var(--orange-accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(140, 94, 69, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background: #7a4f3a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(140, 94, 69, 0.4);
+            outline: none;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .service-card {
+            background: var(--blanc);
+            border-radius: 8px;
+            padding: 25px;
+            border-left: 4px solid var(--orange-accent);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-title {
+            font-size: 20px;
+            color: var(--marron-fonce);
+            margin-bottom: 10px;
+        }
+
+        .service-price {
+            color: var(--orange-accent);
+            font-weight: 700;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        /* TEMOIGNAGES */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .testimonial-card {
+            background: var(--blanc);
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card:before {
+            content: """;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 60px;
+            color: var(--gris-clair);
+            font-family: serif;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            color: var(--marron-texte);
+        }
+
+        .testimonial-author {
+            color: var(--marron-fonce);
+            font-weight: 600;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .faq-item {
+            background: var(--blanc);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--gris-clair);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--orange-accent);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            color: var(--marron-fonce);
+            background: rgba(140, 94, 69, 0.1);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .faq-question:hover {
+            background: rgba(140, 94, 69, 0.2);
+        }
+
+        .faq-question:after {
+            content: "+";
+            font-size: 24px;
+            color: var(--orange-accent);
+            transition: all 0.3s;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--marron-texte);
+            border-left: 3px solid transparent;
+            font-size: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+            border-left-color: var(--orange-accent);
+        }
+
+        .faq-item.active .faq-question:after {
+            content: "-";
+        }
+
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .contact-card {
+            background: var(--blanc);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 40px;
+            color: var(--orange-accent);
+            margin-bottom: 15px;
+        }
+
+        .contact-title {
+            font-size: 20px;
+            color: var(--marron-fonce);
+            margin-bottom: 10px;
+        }
+
+        .contact-detail {
+            font-size: 18px;
+            color: var(--marron-texte);
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        /* CARTE GOOGLE MAPS */
+        .map-container {
+            margin: 40px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--ombre);
+            border: 1px solid var(--gris-clair);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            display: block;
+        }
+
+        /* ENGAGEMENT QUALITÉ */
+        .quality-section {
+            background: var(--vert-fonce);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .quality-card {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .quality-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .quality-card h3 {
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .quality-card h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--marron-fonce);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--orange-accent), var(--marron-fonce));
+        }
+
+        .quality-section .section-title {
+            color: white;
+        }
+
+        .quality-section .section-title:after {
+            background: linear-gradient(to right, white, rgba(255,255,255,0.3));
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--marron-fonce);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: left;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        /* COULEURS DE FOND ALTERNÉES */
+        .section-accueil { background-color: var(--marron-fonce); }
+        .section-produits { background-color: var(--beige-fond); }
+        .section-premium { background-color: var(--blanc); }
+        .section-services { background-color: var(--beige-fond); }
+        .section-faq { background-color: var(--blanc); }
+        .section-temoignages { background-color: var(--beige-fond); }
+        .section-engagement { background-color: var(--vert-fonce); }
+        .section-contact { background-color: var(--blanc); }
+
+        /* AMÉLIORATIONS ACCESSIBILITÉ */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+            
+            .hero-content {
+                padding: 25px;
+            }
+
+            .products-grid, .services-grid, .testimonials-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+                display: block;
+                margin: 10px auto;
+                width: fit-content;
+            }
+            
+            .faq-question {
+                font-size: 16px;
+                padding: 15px;
+            }
+            
+            .faq-question:after {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <header class="section section-accueil">
-    <div class="container">
-      <h1>MABUCHE – Le bois de chauffage qui réchauffe votre foyer</h1>
-      <p>Livraison de bois de chauffage sec, local et de qualité</p>
-    </div>
-  </header>
-
-  <section class="section section-produits">
-    <div class="container">
-      <h2>Nos produits</h2>
-      <div class="products-grid">
-        <div class="product-card">
-          <h3>Chêne 50 cm</h3>
-          <p>70€/stère</p>
+    <!-- EN-TÊTE -->
+    <header>
+        <div class="container">
+            <div class="logo">MABUCHE</div>
+            <nav>
+                <a href="#accueil">Accueil</a>
+                <a href="#produits">Nos produits</a>
+                <a href="#services">Nos services</a>
+                <a href="#faq">Questions</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-        <div class="product-card product-premium">
-          <h3>Chêne Premium 50 cm</h3>
-          <p>78€/stère</p>
+    </header>
+
+    <!-- HERO -->
+    <section id="accueil" class="hero section section-accueil">
+        <div class="container">
+            <div class="hero-content encadre">
+                <h1>MABUCHE – Le bois de chauffage qui réchauffe votre foyer</h1>
+                <p>Chez Mabuche, nous livrons du bois de chauffage sec, de qualité, au meilleur prix. Bois fendu, sur palette ou en vrac, nous proposons des essences locales, un service personnalisé et des conseils pour un chauffage optimal.</p>
+                <div>
+                    <a href="#produits" class="btn">Voir nos produits</a>
+                    <a href="#contact" class="btn">Contactez-nous</a>
+                </div>
+            </div>
         </div>
-        <div class="product-card">
-          <h3>Bois d'allumage</h3>
-          <p>5€/paquet</p>
+    </section>
+
+    <!-- PRODUITS -->
+    <section id="produits" class="section section-produits">
+        <div class="container">
+            <h2 class="section-title">Nos bois de chauffage disponibles</h2>
+            <p class="encadre" style="text-align: center; font-size: 18px;">Tous nos prix sont TTC</p>
+            
+            <div class="products-grid">
+                <!-- Produit 1 -->
+                <div class="product-card encadre">
+                    <div class="product-header">
+                        <h3 class="product-title">Chêne 50 cm</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">70€/stère</div>
+                        <p class="product-details">50 cm<br>Bien sec</p>
+                        <a href="#contact" class="btn">Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 -->
+                <div class="product-card encadre">
+                    <div class="product-header">
+                        <h3 class="product-title">Bois d'allumage</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">5€/paquet</div>
+                        <p class="product-details">Paquet de petit bois sec pour allumage facile</p>
+                        <a href="#contact" class="btn">Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 -->
+                <div class="product-card encadre">
+                    <div class="product-header">
+                        <h3 class="product-title">Chêne 33 cm</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">80€/stère</div>
+                        <p class="product-details">33 cm<br>Bien sec</p>
+                        <a href="#contact" class="btn">Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 6 -->
+                <div class="product-card encadre">
+                    <div class="product-header">
+                        <h3 class="product-title">Châtaignier 2 m</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">55€/stère</div>
+                        <p class="product-details">2 m<br>Bien sec</p>
+                        <a href="#contact" class="btn">Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 4 - Premium -->
+                <div class="product-card encadre premium">
+                    <div class="product-header premium">
+                        <h3 class="product-title">Chêne Premium 50 cm</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">78€/stère</div>
+                        <p class="product-details">50 cm<br>Qualité premium</p>
+                        <a href="#contact" class="btn">Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 5 - Premium -->
+                <div class="product-card encadre premium">
+                    <div class="product-header premium">
+                        <h3 class="product-title">Chêne Premium 33 cm</h3>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">88€/stère</div>
+                        <p class="product-details">33 cm<br>Qualité premium</p>
+                        <a href="#contact" class="btn">Commander</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offre Premium -->
+            <div class="encadre encadre-premium section-premium">
+                <h3 style="color: var(--marron-fonce); margin-top: 0; text-align: center;">Notre offre Premium</h3>
+                <p style="color: var(--marron-texte); text-align: center; margin-bottom: 30px;">Profitez de notre bois premium 100 % chêne, livraison sur palette rangée directement dans votre lieu de stockage. Et pour encore plus de praticité : des paquets de bois d'allumage sont offerts.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                    <!-- Bloc Longueurs -->
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 8px;">
+                        <h4 style="color: var(--marron-fonce); margin-top: 0;">Longueurs disponibles</h4>
+                        <p style="color: var(--marron-texte); margin-bottom: 0;">35cm<br>50cm<br>2m</p>
+                    </div>
+                    
+                    <!-- Bloc Conditionnement -->
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 8px;">
+                        <h4 style="color: var(--marron-fonce); margin-top: 0;">Conditionnement</h4>
+                        <p style="color: var(--marron-texte); margin-bottom: 0;">Vrac<br>Palette</p>
+                    </div>
+                    
+                    <!-- Bloc Séchage -->
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 8px;">
+                        <h4 style="color: var(--marron-fonce); margin-top: 0;">Qualité de séchage</h4>
+                        <p style="color: var(--marron-texte); margin-bottom: 0;">Optimal pour un<br>rendement maximal</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product-card">
-          <h3>Châtaignier 2 m</h3>
-          <p>55€/stère</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section section-services">
+        <div class="container">
+            <h2 class="section-title">Des services pour simplifier votre chauffage</h2>
+            <p class="encadre" style="text-align: center; font-size: 18px;">Mabuche vous accompagne jusqu'à votre cheminée : nous livrons, rangeons, et vous aidons à choisir le bois le mieux adapté à votre installation.</p>
+            
+            <div class="services-grid">
+                <div class="service-card encadre">
+                    <h3 class="service-title">Livraison rapide</h3>
+                    <p style="color: var(--marron-texte);">Nous livrons votre bois rapidement et soigneusement à votre domicile.</p>
+                    <p class="service-price">0,75€/km</p>
+                </div>
+                
+                <div class="service-card encadre">
+                    <h3 class="service-title">Rangement du bois</h3>
+                    <p style="color: var(--marron-texte);">Service de rangement de votre bois à l'endroit de votre choix.</p>
+                    <p class="service-price">20€/heure</p>
+                </div>
+                
+                <div class="service-card encadre">
+                    <h3 class="service-title">Offre spéciale</h3>
+                    <p style="color: var(--marron-texte);">Toute précommande avant le 31 août</p>
+                    <p class="service-price">15 bûches offertes</p>
+                </div>
+            </div>
         </div>
-        <div class="product-card product-premium">
-          <h3>Chêne Premium 33 cm</h3>
-          <p>88€/stère</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section-faq">
+        <div class="container">
+            <h2 class="section-title">Questions fréquentes</h2>
+            
+            <div class="encadre">
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <button class="faq-question">Livrez-vous partout en Occitanie ?</button>
+                        <div class="faq-answer">
+                            <p>Oui, nous livrons dans toute la région Occitanie. Contactez-nous pour vérifier la disponibilité dans votre commune.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">Comment calculer le prix de la livraison ?</button>
+                        <div class="faq-answer">
+                            <p>Le prix de la livraison est de 0,75€ par km. Pour connaître le montant :<br>
+                            1. Consultez la carte en bas de page pour localiser notre dépôt à Najac<br>
+                            2. Mesurez la distance jusqu'à votre domicile via Google Maps<br>
+                            3. Multipliez les kilomètres par 0,75€<br>
+                            Exemple : pour 50km → 50 x 0,75 = 37,50€</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">Quel est le temps de séchage de votre bois ?</button>
+                        <div class="faq-answer">
+                            <p>Notre bois est séché naturellement pendant au moins 18 mois pour garantir une combustion optimale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section-offre-premium">
-    <div class="container">
-      <h2>Notre offre premium</h2>
-      <ul>
-        <li>Longueurs disponibles : 35cm, 50cm, 2m</li>
-        <li>Conditionnement : Vrac ou palette</li>
-        <li>Séchage optimal pour rendement maximal</li>
-      </ul>
-    </div>
-  </section>
+    <!-- TEMOIGNAGES -->
+    <section class="section section-temoignages">
+        <div class="container">
+            <h2 class="section-title">Ce que disent nos clients</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card encadre">
+                    <p class="testimonial-text">"Client depuis 3 ans, je suis toujours satisfait de la qualité du bois et du service. Livraison ponctuelle et équipe sympathique."</p>
+                    <p class="testimonial-author">Jean-Marc B.</p>
+                </div>
+                
+                <div class="testimonial-card encadre">
+                    <p class="testimonial-text">"Bois de qualité, livré rapidement et bien rangé. Je recommande Mabuche pour leur professionnalisme et la qualité de leur service."</p>
+                    <p class="testimonial-author">Marie D.</p>
+                </div>
+                
+                <div class="testimonial-card encadre">
+                    <p class="testimonial-text">"Excellent rapport qualité-prix. Le bois est bien sec et chauffe parfaitement. Le service de rangement est un vrai plus !"</p>
+                    <p class="testimonial-author">Pierre L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="section section-services">
-    <div class="container">
-      <h2>Nos services</h2>
-      <ul>
-        <li>Livraison rapide - 0,75€/km</li>
-        <li>Rangement à domicile - 20€/h</li>
-        <li>Précommande avant le 31 août : 15 bûches offertes</li>
-      </ul>
-    </div>
-  </section>
+    <!-- ENGAGEMENT QUALITÉ -->
+    <section class="quality-section section section-engagement">
+        <div class="container">
+            <h2 class="section-title">Notre engagement qualité</h2>
+            
+            <div class="quality-grid">
+                <div class="quality-card">
+                    <h3>Bois local</h3>
+                    <p>Nous privilégions les essences locales pour réduire notre empreinte carbone et soutenir l'économie de notre région.</p>
+                </div>
+                
+                <div class="quality-card">
+                    <h3>Séchage naturel</h3>
+                    <p>Notre bois est séché naturellement pendant au moins 18 mois pour garantir une combustion optimale et respectueuse de l'environnement.</p>
+                </div>
+                
+                <div class="quality-card">
+                    <h3>Prêt à brûler</h3>
+                    <p>Nous vous garantissons un bois prêt à l'emploi, avec un taux d'humidité inférieur à 20%, pour un rendement calorifique maximal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="section section-faq">
-    <div class="container">
-      <h2>FAQ</h2>
-      <div class="faq-item">
-        <div class="faq-question">Zone de livraison ?</div>
-        <div class="faq-answer">30 km autour de Saint-Salvary</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Temps de séchage ?</div>
-        <div class="faq-answer">18 mois naturel</div>
-      </div>
-    </div>
-  </section>
+    <!-- CONTACT -->
+    <section id="contact" class="section section-contact">
+        <div class="container">
+            <h2 class="section-title">Contactez Mabuche dès maintenant</h2>
+            <p class="encadre" style="text-align: center; font-size: 18px;">Une question ? Besoin d'un conseil ? Contactez-nous par téléphone ou email, nous répondons rapidement.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card encadre">
+                    <div class="contact-icon">📞</div>
+                    <h3 class="contact-title">Téléphone</h3>
+                    <p style="color: var(--marron-texte);">Appelez-nous pour plus d'informations</p>
+                    <p class="contact-detail">06 09 88 58 47</p>
+                    <a href="tel:0609885847" class="btn">Appeler maintenant</a>
+                </div>
+                
+                <div class="contact-card encadre">
+                    <div class="contact-icon">✉️</div>
+                    <h3 class="contact-title">Email</h3>
+                    <p style="color: var(--marron-texte);">Écrivez-nous pour toute demande</p>
+                    <p class="contact-detail">mabuche@gmail.com</p>
+                    <a href="mailto:mabuche@gmail.com" class="btn">Envoyer un email</a>
+                </div>
+                
+                <div class="contact-card encadre">
+                    <div class="contact-icon">📍</div>
+                    <h3 class="contact-title">Adresse</h3>
+                    <p style="color: var(--marron-texte);">Notre dépôt principal</p>
+                    <p class="contact-detail">Saint-Salvary<br>12270 Najac</p>
+                </div>
+            </div>
+            
+            <!-- CARTE GOOGLE MAPS -->
+            <div class="map-container encadre">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2820.123456789012!2d1.9876543!3d44.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDA3JzI0LjQiTiAxwrAxNCczOC4wIkU!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy"></iframe>
+                <p style="text-align: center; margin-top: 15px; color: var(--marron-texte);">Notre dépôt à Saint-Salvary, 12270 Najac</p>
+            </div>
+        </div>
+    </section>
 
-  <section class="section section-temoignages">
-    <div class="container">
-      <h2>Témoignages</h2>
-      <blockquote>"Client depuis 3 ans, toujours satisfait." – Jean-Marc B.</blockquote>
-      <blockquote>"Bois bien sec et service excellent." – Marie D.</blockquote>
-    </div>
-  </section>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>MABUCHE</h3>
+                    <ul class="footer-links">
+                        <li>Bois de chauffage premium</li>
+                        <li>Essences locales</li>
+                        <li>Saint-Salvary, 12270 Najac</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#produits">Nos produits</a></li>
+                        <li><a href="#services">Nos services</a></li>
+                        <li><a href="#faq">Questions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:0609885847">06 09 88 58 47</a></li>
+                        <li><a href="mailto:mabuche@gmail.com">mabuche@gmail.com</a></li>
+                        <li>Livraison en Occitanie</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 Mabuche - Tous droits réservés</p>
+                <p>Conditions et assistance - Créé avec passion</p>
+            </div>
+        </div>
+    </footer>
 
-  <section class="section section-engagement">
-    <div class="container">
-      <h2>Notre engagement qualité</h2>
-      <ul>
-        <li>Bois local = moins d'empreinte carbone</li>
-        <li>Séchage naturel = 18 mois minimum</li>
-        <li>Prêt à brûler = humidité < 20%</li>
-      </ul>
-    </div>
-  </section>
+    <script>
+        // Script pour la FAQ interactive
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+                
+                // Ferme les autres items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
 
-  <section class="section section-contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Téléphone : 06 09 88 58 47</p>
-      <p>Email : enzoaudouyschneider@gmail.com</p>
-    </div>
-  </section>
+            // Ajout de la navigation au clavier
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
+            });
+        });
 
-  <footer>
-    <div class="container footer-content">
-      <div>
-        <h3>MABUCHE</h3>
-        <p>Bois de chauffage premium - Saint-Salvary</p>
-      </div>
-      <div>
-        <h3>Navigation</h3>
-        <p>Accueil | Produits | Services | FAQ | Contact</p>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <p>06 09 88 58 47<br>enzoaudouyschneider@gmail.com</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentNode;
-        item.classList.toggle('active');
-      });
-    });
-  </script>
+        // Smooth scrolling pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Focus sur l'élément cible pour l'accessibilité
+                    if (target.getAttribute('id') !== 'accueil') {
+                        target.setAttribute('tabindex', '-1');
+                        target.focus();
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
