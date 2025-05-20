@@ -359,6 +359,7 @@
             font-family: inherit;
             font-size: 16px;
             transition: all 0.3s;
+            margin-top: 8px; /* Ajout d'espace entre label et input */
         }
 
         .commande-form textarea {
@@ -931,12 +932,13 @@
         </div>
     </section>
 
-    <!-- PRODUITS STANDARD -->
+    <!-- PRODUITS STANDARD ET PREMIUM -->
     <section id="produits" class="section section-produits">
         <div class="container">
             <h2 class="section-title">Nos bois de chauffage disponibles</h2>
             <p class="encadre" style="text-align: center; font-size: 18px;">Tous nos prix sont TTC</p>
             
+            <h3 style="text-align: center; margin: 40px 0 20px; color: var(--marron-fonce);">Produits Standard</h3>
             <div class="products-grid">
                 <!-- Produit 1 -->
                 <div class="product-card encadre">
@@ -986,45 +988,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="section section-services">
-        <div class="container">
-            <h2 class="section-title">Des services pour simplifier votre chauffage</h2>
-            <p class="encadre" style="text-align: center; font-size: 18px;">Mabuche vous accompagne jusqu'à votre cheminée : nous livrons, rangeons, et vous aidons à choisir le bois le mieux adapté à votre installation.</p>
-            
-            <div class="services-grid">
-                <div class="service-card encadre">
-                    <h3 class="service-title">Livraison rapide</h3>
-                    <p style="color: var(--marron-texte);">Nous livrons votre bois rapidement et soigneusement à votre domicile.</p>
-                    <p class="service-price">0,75€/km</p>
-                </div>
-                
-                <div class="service-card encadre">
-                    <h3 class="service-title">Rangement du bois</h3>
-                    <p style="color: var(--marron-texte);">Service de rangement de votre bois à l'endroit de votre choix.</p>
-                    <p class="service-price">20€/heure</p>
-                </div>
-                
-                <div class="service-card encadre">
-                    <h3 class="service-title">Offre spéciale</h3>
-                    <p style="color: var(--marron-texte);">Toute précommande avant le 31 août</p>
-                    <p class="service-price">15 bûches offertes</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUITS PREMIUM -->
-    <section class="premium-section">
-        <div class="container">
-            <h2 class="section-title">Nos produits Premium</h2>
-            <p class="encadre" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
-                Découvrez notre gamme premium de bois de chauffage 100% chêne, sélectionné et séché pour une qualité exceptionnelle.
-            </p>
-            
+            <h3 style="text-align: center; margin: 60px 0 20px; color: var(--marron-fonce);">Produits Premium</h3>
             <div class="premium-products-container">
                 <!-- Produit Premium 1 -->
                 <div class="premium-product encadre">
@@ -1069,6 +1034,34 @@
         </div>
     </section>
 
+    <!-- SERVICES -->
+    <section id="services" class="section section-services">
+        <div class="container">
+            <h2 class="section-title">Des services pour simplifier votre chauffage</h2>
+            <p class="encadre" style="text-align: center; font-size: 18px;">Mabuche vous accompagne jusqu'à votre cheminée : nous livrons, rangeons, et vous aidons à choisir le bois le mieux adapté à votre installation.</p>
+            
+            <div class="services-grid">
+                <div class="service-card encadre">
+                    <h3 class="service-title">Livraison rapide</h3>
+                    <p style="color: var(--marron-texte);">Nous livrons votre bois rapidement et soigneusement à votre domicile.</p>
+                    <p class="service-price">0,75€/km</p>
+                </div>
+                
+                <div class="service-card encadre">
+                    <h3 class="service-title">Rangement du bois</h3>
+                    <p style="color: var(--marron-texte);">Service de rangement de votre bois à l'endroit de votre choix.</p>
+                    <p class="service-price">20€/heure</p>
+                </div>
+                
+                <div class="service-card encadre">
+                    <h3 class="service-title">Offre spéciale</h3>
+                    <p style="color: var(--marron-texte);">Toute précommande avant le 31 août</p>
+                    <p class="service-price">15 bûches offertes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FORMULAIRE DE COMMANDE -->
     <section id="commande" class="section-commande">
         <div class="commande-container">
@@ -1084,22 +1077,27 @@
                             <label for="nom">Nom *</label>
                             <input type="text" id="nom" name="nom" required placeholder="Votre nom">
                         </div>
+                        
                         <div class="form-group">
                             <label for="prenom">Prénom *</label>
                             <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
                         </div>
+                        
                         <div class="form-group">
                             <label for="telephone">Téléphone *</label>
                             <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78">
                         </div>
+                        
                         <div class="form-group">
                             <label for="email">Email *</label>
                             <input type="email" id="email" name="email" required placeholder="votre@email.com">
                         </div>
+                        
                         <div class="form-group full-width">
                             <label for="adresse">Adresse de livraison *</label>
                             <textarea id="adresse" name="adresse" rows="3" required placeholder="Numéro, rue, code postal, ville"></textarea>
                         </div>
+                        
                         <div class="form-group">
                             <label for="produit">Produit choisi *</label>
                             <select id="produit" name="produit" required>
@@ -1112,22 +1110,27 @@
                                 <option value="Chêne Premium 33 cm">Chêne Premium 33 cm - 88€/stère</option>
                             </select>
                         </div>
+                        
                         <div class="form-group">
                             <label for="quantite">Quantité *</label>
                             <input type="number" id="quantite" name="quantite" min="1" required placeholder="1">
                         </div>
+                        
                         <div class="form-group">
                             <label for="date">Date de livraison souhaitée</label>
                             <input type="date" id="date" name="date">
                         </div>
+                        
                         <div class="form-group full-width">
                             <label for="message">Informations complémentaires</label>
                             <textarea id="message" name="message" rows="4" placeholder="Informations supplémentaires (accès, horaires, etc.)"></textarea>
                         </div>
                     </div>
+                    
                     <div class="form-submit">
                         <button type="submit" class="btn btn-commande">Envoyer la commande</button>
                     </div>
+                    
                     <div id="form-message" class="form-message"></div>
                 </form>
             </div>
