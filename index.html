@@ -45,23 +45,49 @@
             transition: all 0.3s;
         }
 
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
         .logo {
             font-size: 32px;
             font-weight: 700;
             color: var(--marron-fonce);
             text-align: center;
             letter-spacing: 1px;
-            margin: 10px 0;
+            margin: 0;
         }
 
-        nav {
+        /* Menu burger */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--marron-fonce);
+            transition: all 0.3s;
+        }
+
+        .nav-list {
             display: flex;
-            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
             gap: 30px;
-            padding: 15px 0;
         }
-
-        nav a {
+        
+        .nav-list a {
             text-decoration: none;
             color: var(--marron-fonce);
             font-weight: 600;
@@ -69,8 +95,8 @@
             position: relative;
             transition: color 0.3s;
         }
-
-        nav a:after {
+        
+        .nav-list a:after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -80,14 +106,14 @@
             background: var(--orange-accent);
             transition: width 0.3s;
         }
-
-        nav a:hover:after,
-        nav a:focus:after {
+        
+        .nav-list a:hover:after,
+        .nav-list a:focus:after {
             width: 100%;
         }
-
-        nav a:hover,
-        nav a:focus {
+        
+        .nav-list a:hover,
+        .nav-list a:focus {
             color: var(--orange-accent);
         }
 
@@ -569,6 +595,59 @@
         .section-engagement { background-color: var(--vert-fonce); }
         .section-contact { background-color: var(--blanc); }
 
+        /* FORMULAIRE DE COMMANDE */
+        .section-commande {
+            background-color: var(--beige-fond);
+        }
+        
+        .commande-form {
+            max-width: 100%;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .commande-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--marron-fonce);
+        }
+        
+        .commande-form input, 
+        .commande-form select, 
+        .commande-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gris-clair);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+
         /* AMÉLIORATIONS ACCESSIBILITÉ */
         .sr-only {
             position: absolute;
@@ -588,10 +667,47 @@
                 padding: 60px 0;
             }
             
-            nav {
-                flex-wrap: wrap;
-                gap: 15px;
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                margin: 15px auto;
+            }
+            
+            .nav-list {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--blanc);
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
+                gap: 20px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s;
+                z-index: 100;
+            }
+            
+            .nav-list.active {
+                right: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
             }
             
             .hero-content {
@@ -643,14 +759,23 @@
     <!-- EN-TÊTE -->
     <header>
         <div class="container">
-            <div class="logo">MABUCHE</div>
-            <nav>
-                <a href="#accueil">Accueil</a>
-                <a href="#produits">Nos produits</a>
-                <a href="#services">Nos services</a>
-                <a href="#faq">Questions</a>
-                <a href="#contact">Contact</a>
-            </nav>
+            <div class="header-content">
+                <div class="logo">MABUCHE</div>
+                <nav>
+                    <div class="menu-toggle" id="mobile-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-list">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#produits">Nos produits</a></li>
+                        <li><a href="#services">Nos services</a></li>
+                        <li><a href="#faq">Questions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -683,7 +808,7 @@
                     <div class="product-body">
                         <div class="product-price">70€/stère</div>
                         <p class="product-details">50 cm<br>Bien sec</p>
-                        <a href="#contact" class="btn">Commander</a>
+                        <a href="#commande" class="btn">Commander</a>
                     </div>
                 </div>
                 
@@ -695,7 +820,7 @@
                     <div class="product-body">
                         <div class="product-price">5€/paquet</div>
                         <p class="product-details">Paquet de petit bois sec pour allumage facile</p>
-                        <a href="#contact" class="btn">Commander</a>
+                        <a href="#commande" class="btn">Commander</a>
                     </div>
                 </div>
                 
@@ -707,7 +832,7 @@
                     <div class="product-body">
                         <div class="product-price">80€/stère</div>
                         <p class="product-details">33 cm<br>Bien sec</p>
-                        <a href="#contact" class="btn">Commander</a>
+                        <a href="#commande" class="btn">Commander</a>
                     </div>
                 </div>
                 
@@ -719,7 +844,7 @@
                     <div class="product-body">
                         <div class="product-price">55€/stère</div>
                         <p class="product-details">2 m<br>Bien sec</p>
-                        <a href="#contact" class="btn">Commander</a>
+                        <a href="#commande" class="btn">Commander</a>
                     </div>
                 </div>
                 
@@ -731,7 +856,7 @@
                     <div class="product-body">
                         <div class="product-price">78€/stère</div>
                         <p class="product-details">50 cm<br>Qualité premium</p>
-                        <a href="#contact" class="btn">Commander</a>
+                        <a href="#commande" class="btn">Commander</a>
                     </div>
                 </div>
                 
@@ -743,7 +868,7 @@
                     <div class="product-body">
                         <div class="product-price">88€/stère</div>
                         <p class="product-details">33 cm<br>Qualité premium</p>
-                        <a href="#contact" class="btn">Commander</a>
+                        <a href="#commande" class="btn">Commander</a>
                     </div>
                 </div>
             </div>
@@ -800,6 +925,67 @@
                     <p style="color: var(--marron-texte);">Toute précommande avant le 31 août</p>
                     <p class="service-price">15 bûches offertes</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE DE COMMANDE -->
+    <section id="commande" class="section section-commande">
+        <div class="container">
+            <h2 class="section-title">Passer une commande</h2>
+            <div class="encadre">
+                <form id="commande-form" class="commande-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nom">Nom *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom *</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone *</label>
+                            <input type="tel" id="telephone" name="telephone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="adresse">Adresse de livraison *</label>
+                            <textarea id="adresse" name="adresse" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="produit">Produit choisi *</label>
+                            <select id="produit" name="produit" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="Chêne 50 cm">Chêne 50 cm - 70€/stère</option>
+                                <option value="Bois d'allumage">Bois d'allumage - 5€/paquet</option>
+                                <option value="Chêne 33 cm">Chêne 33 cm - 80€/stère</option>
+                                <option value="Châtaignier 2 m">Châtaignier 2 m - 55€/stère</option>
+                                <option value="Chêne Premium 50 cm">Chêne Premium 50 cm - 78€/stère</option>
+                                <option value="Chêne Premium 33 cm">Chêne Premium 33 cm - 88€/stère</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantite">Quantité *</label>
+                            <input type="number" id="quantite" name="quantite" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date de livraison souhaitée</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Informations complémentaires</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Envoyer la commande</button>
+                    </div>
+                    <div id="form-message" class="form-message"></div>
+                </form>
             </div>
         </div>
     </section>
@@ -1010,6 +1196,78 @@
                     }
                 }
             });
+        });
+
+        // Menu burger
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
+        
+        // Formulaire de commande
+        const commandeForm = document.getElementById('commande-form');
+        const formMessage = document.getElementById('form-message');
+        
+        commandeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupération des données du formulaire
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Envoi par email (simulé ici, en production utiliser un service comme Formspree ou un backend)
+            const emailBody = `
+                Nouvelle commande de ${data.prenom} ${data.nom}:
+                
+                Contact:
+                Téléphone: ${data.telephone}
+                Email: ${data.email}
+                
+                Adresse de livraison:
+                ${data.adresse}
+                
+                Commande:
+                Produit: ${data.produit}
+                Quantité: ${data.quantite}
+                Date souhaitée: ${data.date || 'Non spécifiée'}
+                
+                Informations complémentaires:
+                ${data.message || 'Aucune'}
+            `;
+            
+            // Simulation d'envoi
+            formMessage.textContent = "Votre commande a bien été envoyée ! Nous vous contacterons rapidement pour confirmation.";
+            formMessage.style.display = "block";
+            formMessage.style.backgroundColor = "rgba(76, 175, 80, 0.2)";
+            formMessage.style.color = "#4CAF50";
+            
+            // Réinitialisation du formulaire
+            commandeForm.reset();
+            
+            // En production, vous utiliseriez quelque chose comme:
+            // fetch("https://formspree.io/f/mabuche@gmail.com", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify(data),
+            // })
+            // .then(response => {
+            //     if (response.ok) {
+            //         formMessage.textContent = "Votre commande a bien été envoyée !";
+            //         formMessage.style.display = "block";
+            //         commandeForm.reset();
+            //     } else {
+            //         throw new Error('Erreur réseau');
+            //     }
+            // })
+            // .catch(error => {
+            //     formMessage.textContent = "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.";
+            //     formMessage.style.display = "block";
+            // });
         });
     </script>
 </body>
