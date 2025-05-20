@@ -618,7 +618,11 @@
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         
         .full-width {
@@ -627,7 +631,7 @@
         
         .commande-form label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
             color: var(--marron-fonce);
             font-size: 16px;
@@ -642,7 +646,8 @@
             border-radius: 6px;
             font-family: inherit;
             font-size: 16px;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            background-color: var(--blanc);
         }
         
         .commande-form input:focus, 
@@ -650,21 +655,48 @@
         .commande-form textarea:focus {
             border-color: var(--orange-accent);
             outline: none;
-            box-shadow: 0 0 0 2px rgba(140, 94, 69, 0.2);
+            box-shadow: 0 0 0 3px rgba(140, 94, 69, 0.2);
         }
         
         .form-submit {
             text-align: center;
             margin-top: 40px;
+            padding: 15px;
         }
         
         .form-message {
             margin-top: 20px;
-            padding: 15px;
-            border-radius: 6px;
+            padding: 20px;
+            border-radius: 8px;
             display: none;
             text-align: center;
             font-weight: 600;
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        /* PRODUITS PREMIUM */
+        .premium-features {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 8px;
+        }
+
+        .premium-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .premium-feature:before {
+            content: "✓";
+            color: var(--doré);
+            font-weight: bold;
         }
 
         /* AMÉLIORATIONS ACCESSIBILITÉ */
@@ -747,7 +779,12 @@
             
             .form-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 15px;
+            }
+            
+            .form-group {
+                margin-bottom: 20px;
+                padding: 12px;
             }
         }
 
@@ -779,6 +816,10 @@
             
             .faq-question:after {
                 font-size: 20px;
+            }
+            
+            .premium-features {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -884,14 +925,11 @@
                     <div class="product-body">
                         <div class="product-price">78€/stère</div>
                         <p class="product-details">50 cm<br>Qualité premium</p>
-                        <div class="premium-details" style="grid-column: 1 / -1; padding: 20px; background: rgba(212, 175, 55, 0.05); margin-top: 20px; border-radius: 8px;">
-                            <p style="text-align: center; font-weight: 600; color: var(--marron-fonce);">Notre offre premium inclut :</p>
-                            <ul style="columns: 2; list-style-type: none; padding: 0; text-align: center;">
-                                <li>✔ Bois 100% chêne</li>
-                                <li>✔ Séchage optimal</li>
-                                <li>✔ Livraison sur palette</li>
-                                <li>✔ Bois d'allumage offert</li>
-                            </ul>
+                        <div class="premium-features">
+                            <div class="premium-feature">Bois 100% chêne sélectionné</div>
+                            <div class="premium-feature">Séchage optimal 24 mois</div>
+                            <div class="premium-feature">Livraison sur palette</div>
+                            <div class="premium-feature">Bois d'allumage offert</div>
                         </div>
                         <a href="#commande" class="btn" style="grid-column: 1 / -1; margin-top: 20px;">Commander</a>
                     </div>
@@ -905,14 +943,11 @@
                     <div class="product-body">
                         <div class="product-price">88€/stère</div>
                         <p class="product-details">33 cm<br>Qualité premium</p>
-                        <div class="premium-details" style="grid-column: 1 / -1; padding: 20px; background: rgba(212, 175, 55, 0.05); margin-top: 20px; border-radius: 8px;">
-                            <p style="text-align: center; font-weight: 600; color: var(--marron-fonce);">Notre offre premium inclut :</p>
-                            <ul style="columns: 2; list-style-type: none; padding: 0; text-align: center;">
-                                <li>✔ Bois 100% chêne</li>
-                                <li>✔ Séchage optimal</li>
-                                <li>✔ Livraison sur palette</li>
-                                <li>✔ Bois d'allumage offert</li>
-                            </ul>
+                        <div class="premium-features">
+                            <div class="premium-feature">Bois 100% chêne sélectionné</div>
+                            <div class="premium-feature">Séchage optimal 24 mois</div>
+                            <div class="premium-feature">Livraison sur palette</div>
+                            <div class="premium-feature">Bois d'allumage offert</div>
                         </div>
                         <a href="#commande" class="btn" style="grid-column: 1 / -1; margin-top: 20px;">Commander</a>
                     </div>
@@ -1238,7 +1273,7 @@
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
             
-            // Envoi par email (simulé ici, en production utiliser un service comme Formspree ou un backend)
+            // Construction du corps de l'email
             const emailBody = `
                 Nouvelle commande de ${data.prenom} ${data.nom}:
                 
@@ -1258,36 +1293,42 @@
                 ${data.message || 'Aucune'}
             `;
             
-            // Simulation d'envoi
-            formMessage.textContent = "Votre commande a bien été envoyée ! Nous vous contacterons rapidement pour confirmation.";
-            formMessage.style.display = "block";
-            formMessage.style.backgroundColor = "rgba(76, 175, 80, 0.2)";
-            formMessage.style.color = "#4CAF50";
-            
-            // Réinitialisation du formulaire
-            commandeForm.reset();
-            
-            // En production, vous utiliseriez quelque chose comme:
-            // fetch("https://formspree.io/f/mabuche.team@gmail.com", {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify(data),
-            // })
-            // .then(response => {
-            //     if (response.ok) {
-            //         formMessage.textContent = "Votre commande a bien été envoyée !";
-            //         formMessage.style.display = "block";
-            //         commandeForm.reset();
-            //     } else {
-            //         throw new Error('Erreur réseau');
-            //     }
-            // })
-            // .catch(error => {
-            //     formMessage.textContent = "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.";
-            //     formMessage.style.display = "block";
-            // });
+            // Envoi réel de l'email via Formspree
+            fetch("https://formspree.io/f/mabuche.team@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: `${data.prenom} ${data.nom}`,
+                    _replyto: data.email,
+                    phone: data.telephone,
+                    address: data.adresse,
+                    product: data.produit,
+                    quantity: data.quantite,
+                    date: data.date || 'Non spécifiée',
+                    message: data.message || 'Aucune',
+                    _subject: `Nouvelle commande de ${data.prenom} ${data.nom}`,
+                    body: emailBody
+                }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    formMessage.textContent = "Votre commande a bien été envoyée ! Nous vous contacterons rapidement pour confirmation.";
+                    formMessage.style.display = "block";
+                    formMessage.style.backgroundColor = "rgba(76, 175, 80, 0.2)";
+                    formMessage.style.color = "#4CAF50";
+                    commandeForm.reset();
+                } else {
+                    throw new Error('Erreur réseau');
+                }
+            })
+            .catch(error => {
+                formMessage.textContent = "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement par téléphone.";
+                formMessage.style.display = "block";
+                formMessage.style.backgroundColor = "rgba(255, 87, 34, 0.2)";
+                formMessage.style.color = "#F44336";
+            });
         });
     </script>
 </body>
