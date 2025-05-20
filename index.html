@@ -60,15 +60,16 @@
             margin: 0;
         }
 
-        /* Menu burger */
+        /* Menu burger amélioré */
         .menu-toggle {
             display: none;
             flex-direction: column;
             justify-content: space-between;
             width: 30px;
-            height: 21px;
+            height: 25px;
             cursor: pointer;
             z-index: 101;
+            position: relative;
         }
         
         .menu-toggle span {
@@ -76,7 +77,8 @@
             height: 3px;
             width: 100%;
             background: var(--marron-fonce);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            border-radius: 3px;
         }
 
         .nav-list {
@@ -281,7 +283,7 @@
             margin-top: 15px;
         }
 
-        /* SECTION COMMANDE */
+        /* SECTION COMMANDE - AMÉLIORÉE */
         .section-commande {
             background-color: #f8f5f2;
             padding: 80px 0;
@@ -330,11 +332,11 @@
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 30px; /* Espacement augmenté */
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px; /* Espacement augmenté entre les groupes */
         }
 
         .form-group.full-width {
@@ -343,7 +345,7 @@
 
         .commande-form label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 12px; /* Espacement augmenté sous le label */
             font-weight: 600;
             color: var(--marron-fonce);
             font-size: 16px;
@@ -353,13 +355,13 @@
         .commande-form select, 
         .commande-form textarea {
             width: 100%;
-            padding: 14px;
+            padding: 15px; /* Padding augmenté */
             border: 1px solid var(--gris-clair);
             border-radius: 8px;
             font-family: inherit;
             font-size: 16px;
             transition: all 0.3s;
-            margin-top: 8px; /* Ajout d'espace entre label et input */
+            margin-top: 8px; /* Espacement entre label et input */
         }
 
         .commande-form textarea {
@@ -369,7 +371,7 @@
         .form-submit {
             grid-column: 1 / -1;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px; /* Espacement augmenté */
         }
 
         .btn-commande {
@@ -786,20 +788,33 @@
             border: 1px solid rgba(76, 175, 80, 0.3);
         }
 
-        /* RESPONSIVE */
+        /* OVERLAY POUR MENU MOBILE */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 99;
+        }
+
+        /* RESPONSIVE - AMÉLIORATIONS */
         @media (max-width: 768px) {
             .section {
                 padding: 60px 0;
             }
             
             .header-content {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
             }
             
             .menu-toggle {
                 display: flex;
-                margin: 15px auto;
+                margin: 0;
             }
             
             .nav-list {
@@ -813,10 +828,11 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 20px;
+                gap: 30px;
                 box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                transition: right 0.3s;
+                transition: right 0.3s ease;
                 z-index: 100;
+                padding: 20px;
             }
             
             .nav-list.active {
@@ -824,7 +840,7 @@
             }
             
             .menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
+                transform: rotate(45deg) translate(5px, 6px);
             }
             
             .menu-toggle.active span:nth-child(2) {
@@ -832,11 +848,15 @@
             }
             
             .menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+            
+            .overlay.active {
+                display: block;
             }
             
             .hero-content {
-                padding: 25px;
+                padding: 30px;
             }
 
             .products-grid, .services-grid, .testimonials-grid, .contact-grid {
@@ -849,10 +869,20 @@
             
             .form-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .premium-product {
                 min-width: 100%;
+            }
+
+            /* Espacement amélioré pour formulaire mobile */
+            .commande-form {
+                padding: 25px;
+            }
+            
+            .form-group {
+                margin-bottom: 25px;
             }
         }
 
@@ -867,6 +897,7 @@
             
             .section-title {
                 font-size: 28px;
+                margin-bottom: 30px;
             }
             
             .btn {
@@ -884,17 +915,24 @@
             }
             
             .commande-form {
-                padding: 25px;
+                padding: 20px;
             }
             
             .btn-commande {
-                padding: 12px 30px;
+                padding: 14px 30px;
                 font-size: 16px;
+            }
+
+            .premium-product {
+                min-width: 100%;
             }
         }
     </style>
 </head>
 <body>
+    <!-- OVERLAY POUR MENU MOBILE -->
+    <div class="overlay" id="overlay"></div>
+
     <!-- EN-TÊTE -->
     <header>
         <div class="container">
@@ -906,7 +944,7 @@
                         <span></span>
                         <span></span>
                     </div>
-                    <ul class="nav-list">
+                    <ul class="nav-list" id="main-nav">
                         <li><a href="#accueil">Accueil</a></li>
                         <li><a href="#produits">Nos produits</a></li>
                         <li><a href="#services">Nos services</a></li>
@@ -1302,6 +1340,39 @@
     </footer>
 
     <script>
+        // Script amélioré pour le menu burger
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('main-nav');
+        const overlay = document.getElementById('overlay');
+        
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            navList.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navList.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        menuToggle.addEventListener('click', toggleMenu);
+        
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navList.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // Fermer le menu en cliquant sur l'overlay
+        overlay.addEventListener('click', toggleMenu);
+        
+        // Fermer le menu avec la touche ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navList.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+
         // Script pour la FAQ interactive
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
@@ -1343,15 +1414,6 @@
                     }
                 }
             });
-        });
-
-        // Menu burger
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.querySelector('.nav-list');
-        
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navList.classList.toggle('active');
         });
         
         // Formulaire de commande
