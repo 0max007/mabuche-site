@@ -197,6 +197,13 @@
         .product-card.premium {
             border: 2px solid var(--doré);
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .product-card.premium .product-header {
+            grid-column: 1 / -1;
         }
 
         .product-header {
@@ -606,12 +613,12 @@
         
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .full-width {
@@ -620,32 +627,44 @@
         
         .commande-form label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: var(--marron-fonce);
+            font-size: 16px;
         }
         
         .commande-form input, 
         .commande-form select, 
         .commande-form textarea {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border: 1px solid var(--gris-clair);
-            border-radius: 4px;
+            border-radius: 6px;
             font-family: inherit;
             font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .commande-form input:focus, 
+        .commande-form select:focus, 
+        .commande-form textarea:focus {
+            border-color: var(--orange-accent);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(140, 94, 69, 0.2);
         }
         
         .form-submit {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
         }
         
         .form-message {
             margin-top: 20px;
             padding: 15px;
-            border-radius: 4px;
+            border-radius: 6px;
             display: none;
+            text-align: center;
+            font-weight: 600;
         }
 
         /* AMÉLIORATIONS ACCESSIBILITÉ */
@@ -710,6 +729,10 @@
                 transform: rotate(-45deg) translate(7px, -6px);
             }
             
+            .product-card.premium {
+                grid-template-columns: 1fr;
+            }
+            
             .hero-content {
                 padding: 25px;
             }
@@ -720,6 +743,11 @@
             
             .map-container iframe {
                 height: 300px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
 
@@ -856,7 +884,16 @@
                     <div class="product-body">
                         <div class="product-price">78€/stère</div>
                         <p class="product-details">50 cm<br>Qualité premium</p>
-                        <a href="#commande" class="btn">Commander</a>
+                        <div class="premium-details" style="grid-column: 1 / -1; padding: 20px; background: rgba(212, 175, 55, 0.05); margin-top: 20px; border-radius: 8px;">
+                            <p style="text-align: center; font-weight: 600; color: var(--marron-fonce);">Notre offre premium inclut :</p>
+                            <ul style="columns: 2; list-style-type: none; padding: 0; text-align: center;">
+                                <li>✔ Bois 100% chêne</li>
+                                <li>✔ Séchage optimal</li>
+                                <li>✔ Livraison sur palette</li>
+                                <li>✔ Bois d'allumage offert</li>
+                            </ul>
+                        </div>
+                        <a href="#commande" class="btn" style="grid-column: 1 / -1; margin-top: 20px;">Commander</a>
                     </div>
                 </div>
                 
@@ -868,33 +905,16 @@
                     <div class="product-body">
                         <div class="product-price">88€/stère</div>
                         <p class="product-details">33 cm<br>Qualité premium</p>
-                        <a href="#commande" class="btn">Commander</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Offre Premium -->
-            <div class="encadre encadre-premium section-premium">
-                <h3 style="color: var(--marron-fonce); margin-top: 0; text-align: center;">Notre offre Premium</h3>
-                <p style="color: var(--marron-texte); text-align: center; margin-bottom: 30px;">Profitez de notre bois premium 100 % chêne, livraison sur palette rangée directement dans votre lieu de stockage. Et pour encore plus de praticité : des paquets de bois d'allumage sont offerts.</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
-                    <!-- Bloc Longueurs -->
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 8px;">
-                        <h4 style="color: var(--marron-fonce); margin-top: 0;">Longueurs disponibles</h4>
-                        <p style="color: var(--marron-texte); margin-bottom: 0;">35cm<br>50cm<br>2m</p>
-                    </div>
-                    
-                    <!-- Bloc Conditionnement -->
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 8px;">
-                        <h4 style="color: var(--marron-fonce); margin-top: 0;">Conditionnement</h4>
-                        <p style="color: var(--marron-texte); margin-bottom: 0;">Vrac<br>Palette</p>
-                    </div>
-                    
-                    <!-- Bloc Séchage -->
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 8px;">
-                        <h4 style="color: var(--marron-fonce); margin-top: 0;">Qualité de séchage</h4>
-                        <p style="color: var(--marron-texte); margin-bottom: 0;">Optimal pour un<br>rendement maximal</p>
+                        <div class="premium-details" style="grid-column: 1 / -1; padding: 20px; background: rgba(212, 175, 55, 0.05); margin-top: 20px; border-radius: 8px;">
+                            <p style="text-align: center; font-weight: 600; color: var(--marron-fonce);">Notre offre premium inclut :</p>
+                            <ul style="columns: 2; list-style-type: none; padding: 0; text-align: center;">
+                                <li>✔ Bois 100% chêne</li>
+                                <li>✔ Séchage optimal</li>
+                                <li>✔ Livraison sur palette</li>
+                                <li>✔ Bois d'allumage offert</li>
+                            </ul>
+                        </div>
+                        <a href="#commande" class="btn" style="grid-column: 1 / -1; margin-top: 20px;">Commander</a>
                     </div>
                 </div>
             </div>
@@ -938,23 +958,23 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="nom">Nom *</label>
-                            <input type="text" id="nom" name="nom" required>
+                            <input type="text" id="nom" name="nom" required placeholder="Votre nom">
                         </div>
                         <div class="form-group">
                             <label for="prenom">Prénom *</label>
-                            <input type="text" id="prenom" name="prenom" required>
+                            <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
                         </div>
                         <div class="form-group">
                             <label for="telephone">Téléphone *</label>
-                            <input type="tel" id="telephone" name="telephone" required>
+                            <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78">
                         </div>
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required placeholder="votre@email.com">
                         </div>
                         <div class="form-group full-width">
                             <label for="adresse">Adresse de livraison *</label>
-                            <textarea id="adresse" name="adresse" rows="3" required></textarea>
+                            <textarea id="adresse" name="adresse" rows="3" required placeholder="Numéro, rue, code postal, ville"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="produit">Produit choisi *</label>
@@ -970,7 +990,7 @@
                         </div>
                         <div class="form-group">
                             <label for="quantite">Quantité *</label>
-                            <input type="number" id="quantite" name="quantite" min="1" required>
+                            <input type="number" id="quantite" name="quantite" min="1" required placeholder="1">
                         </div>
                         <div class="form-group">
                             <label for="date">Date de livraison souhaitée</label>
@@ -978,7 +998,7 @@
                         </div>
                         <div class="form-group full-width">
                             <label for="message">Informations complémentaires</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Informations supplémentaires (accès, horaires, etc.)"></textarea>
                         </div>
                     </div>
                     <div class="form-submit">
@@ -1093,8 +1113,8 @@
                     <div class="contact-icon">✉️</div>
                     <h3 class="contact-title">Email</h3>
                     <p style="color: var(--marron-texte);">Écrivez-nous pour toute demande</p>
-                    <p class="contact-detail">mabuche@gmail.com</p>
-                    <a href="mailto:mabuche@gmail.com" class="btn">Envoyer un email</a>
+                    <p class="contact-detail">mabuche.team@gmail.com</p>
+                    <a href="mailto:mabuche.team@gmail.com" class="btn">Envoyer un email</a>
                 </div>
                 
                 <div class="contact-card encadre">
@@ -1141,7 +1161,7 @@
                     <h3>Contact</h3>
                     <ul class="footer-links">
                         <li><a href="tel:0609885847">06 09 88 58 47</a></li>
-                        <li><a href="mailto:mabuche@gmail.com">mabuche@gmail.com</a></li>
+                        <li><a href="mailto:mabuche.team@gmail.com">mabuche.team@gmail.com</a></li>
                         <li>Livraison en Occitanie</li>
                     </ul>
                 </div>
@@ -1248,7 +1268,7 @@
             commandeForm.reset();
             
             // En production, vous utiliseriez quelque chose comme:
-            // fetch("https://formspree.io/f/mabuche@gmail.com", {
+            // fetch("https://formspree.io/f/mabuche.team@gmail.com", {
             //     method: "POST",
             //     headers: {
             //         "Content-Type": "application/json",
