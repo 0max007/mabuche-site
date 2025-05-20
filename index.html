@@ -13,7 +13,7 @@
             --orange-accent: #8C5E45;
             --beige-fond: #F5F1EC;
             --gris-clair: #D1C7C0;
-            --vert-fonce: #5C3A2A; /* Fond marron */
+            --vert-fonce: #5C3A2A;
             --blanc: #FFFFFF;
             --doré: #D4AF37;
             --ombre: 0 4px 20px rgba(58, 46, 40, 0.1);
@@ -174,7 +174,7 @@
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
-        /* PRODUITS */
+        /* PRODUITS STANDARD */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -194,26 +194,10 @@
             transform: translateY(-8px);
         }
 
-        .product-card.premium {
-            border: 2px solid var(--doré);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .product-card.premium .product-header {
-            grid-column: 1 / -1;
-        }
-
         .product-header {
             background: rgba(140, 94, 69, 0.1);
             padding: 20px;
             border-bottom: 1px solid var(--gris-clair);
-        }
-
-        .product-header.premium {
-            background: rgba(212, 175, 55, 0.1);
         }
 
         .product-title {
@@ -295,6 +279,194 @@
             font-weight: 700;
             font-size: 20px;
             margin-top: 15px;
+        }
+
+        /* SECTION COMMANDE */
+        .section-commande {
+            background-color: #f8f5f2;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-commande:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(to right, var(--orange-accent), var(--marron-fonce));
+        }
+
+        .commande-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .commande-form {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h2 {
+            color: var(--marron-fonce);
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .form-header p {
+            color: var(--marron-texte);
+            font-size: 18px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .commande-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--marron-fonce);
+            font-size: 16px;
+        }
+
+        .commande-form input, 
+        .commande-form select, 
+        .commande-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--gris-clair);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .commande-form textarea {
+            min-height: 120px;
+        }
+
+        .form-submit {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-commande {
+            background: var(--orange-accent);
+            color: white;
+            padding: 16px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-commande:hover {
+            background: #7a4f3a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(140, 94, 69, 0.4);
+        }
+
+        /* SECTION PRODUITS PREMIUM */
+        .premium-section {
+            background-color: #faf6f0;
+            padding: 60px 0;
+        }
+
+        .premium-products-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .premium-product {
+            flex: 1;
+            min-width: 450px;
+            max-width: 550px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--doré);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .premium-product:hover {
+            transform: translateY(-10px);
+        }
+
+        .premium-header {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .premium-header h3 {
+            color: var(--marron-fonce);
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .premium-body {
+            padding: 30px;
+        }
+
+        .premium-price {
+            font-size: 28px;
+            color: var(--orange-accent);
+            font-weight: 700;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .premium-features {
+            margin: 30px 0;
+        }
+
+        .premium-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--gris-clair);
+        }
+
+        .premium-feature:before {
+            content: "✓";
+            color: var(--doré);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .premium-cta {
+            text-align: center;
+            margin-top: 30px;
         }
 
         /* TEMOIGNAGES */
@@ -595,75 +767,13 @@
         /* COULEURS DE FOND ALTERNÉES */
         .section-accueil { background-color: var(--marron-fonce); }
         .section-produits { background-color: var(--beige-fond); }
-        .section-premium { background-color: var(--blanc); }
         .section-services { background-color: var(--beige-fond); }
         .section-faq { background-color: var(--blanc); }
         .section-temoignages { background-color: var(--beige-fond); }
         .section-engagement { background-color: var(--vert-fonce); }
         .section-contact { background-color: var(--blanc); }
 
-        /* FORMULAIRE DE COMMANDE */
-        .section-commande {
-            background-color: var(--beige-fond);
-        }
-        
-        .commande-form {
-            max-width: 100%;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .full-width {
-            grid-column: 1 / -1;
-        }
-        
-        .commande-form label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--marron-fonce);
-            font-size: 16px;
-        }
-        
-        .commande-form input, 
-        .commande-form select, 
-        .commande-form textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid var(--gris-clair);
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 16px;
-            transition: all 0.3s;
-            background-color: var(--blanc);
-        }
-        
-        .commande-form input:focus, 
-        .commande-form select:focus, 
-        .commande-form textarea:focus {
-            border-color: var(--orange-accent);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(140, 94, 69, 0.2);
-        }
-        
-        .form-submit {
-            text-align: center;
-            margin-top: 40px;
-            padding: 15px;
-        }
-        
+        /* MESSAGE FORMULAIRE */
         .form-message {
             margin-top: 20px;
             padding: 20px;
@@ -673,43 +783,6 @@
             font-weight: 600;
             background-color: rgba(76, 175, 80, 0.1);
             border: 1px solid rgba(76, 175, 80, 0.3);
-        }
-
-        /* PRODUITS PREMIUM */
-        .premium-features {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(212, 175, 55, 0.05);
-            border-radius: 8px;
-        }
-
-        .premium-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .premium-feature:before {
-            content: "✓";
-            color: var(--doré);
-            font-weight: bold;
-        }
-
-        /* AMÉLIORATIONS ACCESSIBILITÉ */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
         }
 
         /* RESPONSIVE */
@@ -761,10 +834,6 @@
                 transform: rotate(-45deg) translate(7px, -6px);
             }
             
-            .product-card.premium {
-                grid-template-columns: 1fr;
-            }
-            
             .hero-content {
                 padding: 25px;
             }
@@ -779,12 +848,10 @@
             
             .form-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
             }
             
-            .form-group {
-                margin-bottom: 20px;
-                padding: 12px;
+            .premium-product {
+                min-width: 100%;
             }
         }
 
@@ -804,9 +871,6 @@
             .btn {
                 padding: 10px 20px;
                 font-size: 14px;
-                display: block;
-                margin: 10px auto;
-                width: fit-content;
             }
             
             .faq-question {
@@ -818,8 +882,13 @@
                 font-size: 20px;
             }
             
-            .premium-features {
-                grid-template-columns: 1fr;
+            .commande-form {
+                padding: 25px;
+            }
+            
+            .btn-commande {
+                padding: 12px 30px;
+                font-size: 16px;
             }
         }
     </style>
@@ -862,7 +931,7 @@
         </div>
     </section>
 
-    <!-- PRODUITS -->
+    <!-- PRODUITS STANDARD -->
     <section id="produits" class="section section-produits">
         <div class="container">
             <h2 class="section-title">Nos bois de chauffage disponibles</h2>
@@ -916,42 +985,6 @@
                         <a href="#commande" class="btn">Commander</a>
                     </div>
                 </div>
-                
-                <!-- Produit 4 - Premium -->
-                <div class="product-card encadre premium">
-                    <div class="product-header premium">
-                        <h3 class="product-title">Chêne Premium 50 cm</h3>
-                    </div>
-                    <div class="product-body">
-                        <div class="product-price">78€/stère</div>
-                        <p class="product-details">50 cm<br>Qualité premium</p>
-                        <div class="premium-features">
-                            <div class="premium-feature">Bois 100% chêne sélectionné</div>
-                            <div class="premium-feature">Séchage optimal 24 mois</div>
-                            <div class="premium-feature">Livraison sur palette</div>
-                            <div class="premium-feature">Bois d'allumage offert</div>
-                        </div>
-                        <a href="#commande" class="btn" style="grid-column: 1 / -1; margin-top: 20px;">Commander</a>
-                    </div>
-                </div>
-                
-                <!-- Produit 5 - Premium -->
-                <div class="product-card encadre premium">
-                    <div class="product-header premium">
-                        <h3 class="product-title">Chêne Premium 33 cm</h3>
-                    </div>
-                    <div class="product-body">
-                        <div class="product-price">88€/stère</div>
-                        <p class="product-details">33 cm<br>Qualité premium</p>
-                        <div class="premium-features">
-                            <div class="premium-feature">Bois 100% chêne sélectionné</div>
-                            <div class="premium-feature">Séchage optimal 24 mois</div>
-                            <div class="premium-feature">Livraison sur palette</div>
-                            <div class="premium-feature">Bois d'allumage offert</div>
-                        </div>
-                        <a href="#commande" class="btn" style="grid-column: 1 / -1; margin-top: 20px;">Commander</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -984,12 +1017,68 @@
         </div>
     </section>
 
-    <!-- FORMULAIRE DE COMMANDE -->
-    <section id="commande" class="section section-commande">
+    <!-- PRODUITS PREMIUM -->
+    <section class="premium-section">
         <div class="container">
-            <h2 class="section-title">Passer une commande</h2>
-            <div class="encadre">
-                <form id="commande-form" class="commande-form">
+            <h2 class="section-title">Nos produits Premium</h2>
+            <p class="encadre" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+                Découvrez notre gamme premium de bois de chauffage 100% chêne, sélectionné et séché pour une qualité exceptionnelle.
+            </p>
+            
+            <div class="premium-products-container">
+                <!-- Produit Premium 1 -->
+                <div class="premium-product encadre">
+                    <div class="premium-header">
+                        <h3>Chêne Premium 50 cm</h3>
+                    </div>
+                    <div class="premium-body">
+                        <div class="premium-price">78€ / stère</div>
+                        <div class="premium-features">
+                            <div class="premium-feature">Bois 100% chêne sélectionné</div>
+                            <div class="premium-feature">Séchage optimal 24 mois minimum</div>
+                            <div class="premium-feature">Livraison sur palette incluse</div>
+                            <div class="premium-feature">2 paquets de bois d'allumage offerts</div>
+                            <div class="premium-feature">Pouvoir calorifique élevé</div>
+                        </div>
+                        <div class="premium-cta">
+                            <a href="#commande" class="btn">Commander</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit Premium 2 -->
+                <div class="premium-product encadre">
+                    <div class="premium-header">
+                        <h3>Chêne Premium 33 cm</h3>
+                    </div>
+                    <div class="premium-body">
+                        <div class="premium-price">88€ / stère</div>
+                        <div class="premium-features">
+                            <div class="premium-feature">Bois 100% chêne sélectionné</div>
+                            <div class="premium-feature">Séchage optimal 24 mois minimum</div>
+                            <div class="premium-feature">Livraison sur palette incluse</div>
+                            <div class="premium-feature">2 paquets de bois d'allumage offerts</div>
+                            <div class="premium-feature">Pouvoir calorifique élevé</div>
+                        </div>
+                        <div class="premium-cta">
+                            <a href="#commande" class="btn">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE DE COMMANDE -->
+    <section id="commande" class="section-commande">
+        <div class="commande-container">
+            <div class="commande-form encadre">
+                <div class="form-header">
+                    <h2>Passer votre commande</h2>
+                    <p>Remplissez ce formulaire et nous vous contacterons pour confirmer votre commande</p>
+                </div>
+                
+                <form id="commande-form">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="nom">Nom *</label>
@@ -1037,7 +1126,7 @@
                         </div>
                     </div>
                     <div class="form-submit">
-                        <button type="submit" class="btn">Envoyer la commande</button>
+                        <button type="submit" class="btn btn-commande">Envoyer la commande</button>
                     </div>
                     <div id="form-message" class="form-message"></div>
                 </form>
