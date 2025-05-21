@@ -1101,52 +1101,42 @@
 <!-- FORMULAIRE DE COMMANDE -->
 <section id="commande" class="section-commande">
     <div class="commande-container">
-        <div class="commande-form encadre">
-            <div class="form-header">
-                <h2>Passer votre commande</h2>
-                <p>Remplissez ce formulaire et nous vous contacterons pour confirmer votre commande</p>
+        <div class="commande-form encadre" style="padding: 30px;">
+            <div class="form-header" style="margin-bottom: 30px;">
+                <h2 style="margin-bottom: 10px;">Passer votre commande</h2>
+                <p style="color: #666; font-size: 0.95em;">Remplissez ce formulaire et nous vous contacterons pour confirmer votre commande</p>
             </div>
             
             <form id="commande-form">
-                <div class="form-grid">
+                <div class="form-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
                     <div class="form-group">
-                        <label for="nom">Nom *</label>
-                        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+                        <label for="nom" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Nom *</label>
+                        <input type="text" id="nom" name="nom" required placeholder="Votre nom" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
-                    <div style="height: 15px;"></div>
-                    
                     <div class="form-group">
-                        <label for="prenom">Prénom *</label>
-                        <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+                        <label for="prenom" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Prénom *</label>
+                        <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
-                    <div style="height: 15px;"></div>
-                    
                     <div class="form-group">
-                        <label for="telephone">Téléphone *</label>
-                        <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78">
+                        <label for="telephone" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Téléphone *</label>
+                        <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
-                    <div style="height: 15px;"></div>
-                    
                     <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
-                    
-                    <div style="height: 15px;"></div>
                     
                     <div class="form-group full-width">
-                        <label for="adresse">Adresse de livraison *</label>
-                        <textarea id="adresse" name="adresse" rows="3" required placeholder="Numéro, rue, code postal, ville"></textarea>
+                        <label for="adresse" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Adresse de livraison *</label>
+                        <textarea id="adresse" name="adresse" rows="3" required placeholder="Numéro, rue, code postal, ville" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; font-family: inherit;"></textarea>
                     </div>
                     
-                    <div style="height: 15px;"></div>
-                    
                     <div class="form-group">
-                        <label for="produit">Produit choisi *</label>
-                        <select id="produit" name="produit" required>
+                        <label for="produit" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Produit choisi *</label>
+                        <select id="produit" name="produit" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; background-color: white;">
                             <option value="">-- Sélectionnez --</option>
                             <option value="Chêne 50 cm">Chêne 50 cm - 70€/stère</option>
                             <option value="Bois d'allumage">Bois d'allumage - 5€/paquet</option>
@@ -1157,32 +1147,24 @@
                         </select>
                     </div>
                     
-                    <div style="height: 15px;"></div>
-                    
                     <div class="form-group">
-                        <label for="quantite">Quantité *</label>
-                        <input type="number" id="quantite" name="quantite" min="1" required placeholder="1">
+                        <label for="quantite" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Quantité *</label>
+                        <input type="number" id="quantite" name="quantite" min="1" required placeholder="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
-                    <div style="height: 15px;"></div>
-                    
                     <div class="form-group">
-                        <label for="date">Date de livraison souhaitée</label>
-                        <input type="date" id="date" name="date">
+                        <label for="date" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Date de livraison souhaitée</label>
+                        <input type="date" id="date" name="date" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
-                    
-                    <div style="height: 15px;"></div>
                     
                     <div class="form-group full-width">
-                        <label for="message">Informations complémentaires</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Informations supplémentaires (accès, horaires, etc.)"></textarea>
+                        <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Informations complémentaires</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Informations supplémentaires (accès, horaires, etc.)" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; font-family: inherit;"></textarea>
                     </div>
                 </div>
                 
-                <div style="height: 20px;"></div>
-                
-                <div class="form-submit">
-                    <button type="submit" class="btn btn-commande">Envoyer la commande</button>
+                <div class="form-submit" style="margin-top: 30px; text-align: center;">
+                    <button type="submit" class="btn btn-commande" style="background-color: #4CAF50; color: white; border: none; padding: 14px 28px; font-size: 1em; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">Envoyer la commande</button>
                 </div>
                 
                 <div id="form-message" class="form-message"></div>
@@ -1192,24 +1174,28 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="section section-faq">
+<section id="faq" class="section section-faq" style="margin-top: 50px;">
     <div class="container">
-        <h2 class="section-title">Questions fréquentes</h2>
+        <h2 class="section-title" style="text-align: center; margin-bottom: 30px; color: #333;">Questions fréquentes</h2>
         
-        <div class="encadre">
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <button class="faq-question">Livrez-vous partout en Occitanie ?</button>
-                    <div class="faq-answer">
+        <div class="encadre" style="padding: 30px; border-radius: 8px; background-color: #f9f9f9;">
+            <div class="faq-grid" style="display: grid; gap: 20px;">
+                <div class="faq-item" style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; font-weight: 600; font-size: 1.1em; padding: 10px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        Livrez-vous partout en Occitanie ?
+                        <span style="font-size: 1.5em;">+</span>
+                    </button>
+                    <div class="faq-answer" style="padding-top: 10px; color: #555; line-height: 1.6;">
                         <p>Oui, nous livrons dans toute la région Occitanie. Contactez-nous pour vérifier la disponibilité dans votre commune.</p>
                     </div>
                 </div>
                 
-                <div style="height: 15px;"></div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">Comment calculer le prix de la livraison ?</button>
-                    <div class="faq-answer">
+                <div class="faq-item" style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; font-weight: 600; font-size: 1.1em; padding: 10px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        Comment calculer le prix de la livraison ?
+                        <span style="font-size: 1.5em;">+</span>
+                    </button>
+                    <div class="faq-answer" style="padding-top: 10px; color: #555; line-height: 1.6;">
                         <p>Le prix de la livraison est de 0,75€ par km. Pour connaître le montant :<br>
                         1. Consultez la carte en bas de page pour localiser notre dépôt à Najac<br>
                         2. Mesurez la distance jusqu'à votre domicile via Google Maps<br>
@@ -1218,11 +1204,12 @@
                     </div>
                 </div>
                 
-                <div style="height: 15px;"></div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">Quel est le temps de séchage de votre bois ?</button>
-                    <div class="faq-answer">
+                <div class="faq-item" style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; font-weight: 600; font-size: 1.1em; padding: 10px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        Quel est le temps de séchage de votre bois ?
+                        <span style="font-size: 1.5em;">+</span>
+                    </button>
+                    <div class="faq-answer" style="padding-top: 10px; color: #555; line-height: 1.6;">
                         <p>Notre bois est séché naturellement pendant au moins 18 mois pour garantir une combustion optimale.</p>
                     </div>
                 </div>
