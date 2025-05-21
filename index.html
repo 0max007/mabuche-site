@@ -1107,7 +1107,7 @@
                 <p style="color: #666; font-size: 0.95em;">Remplissez ce formulaire et nous vous contacterons pour confirmer votre commande</p>
             </div>
             
-            <form id="commande-form">
+            <form id="commande-form" onsubmit="return submitForm(event)">
                 <div class="form-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
                     <div class="form-group">
                         <label for="nom" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Nom *</label>
@@ -1121,7 +1121,7 @@
                     
                     <div class="form-group">
                         <label for="telephone" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Téléphone *</label>
-                        <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
+                        <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78" pattern="[0-9]{10}" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
                     <div class="form-group">
@@ -1167,11 +1167,69 @@
                     <button type="submit" class="btn btn-commande" style="background-color: #4CAF50; color: white; border: none; padding: 14px 28px; font-size: 1em; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">Envoyer la commande</button>
                 </div>
                 
-                <div id="form-message" class="form-message"></div>
+                <div id="form-message" class="form-message" style="margin-top: 20px; padding: 15px; border-radius: 4px; display: none;"></div>
             </form>
         </div>
     </div>
 </section>
+
+<script>
+function submitForm(event) {
+    event.preventDefault(); // Empêche l'envoi traditionnel du formulaire
+    
+    // Récupération des valeurs du formulaire
+    const formData = {
+        nom: document.getElementById('nom').value,
+        prenom: document.getElementById('prenom').value,
+        telephone: document.getElementById('telephone').value,
+        email: document.getElementById('email').value,
+        adresse: document.getElementById('adresse').value,
+        produit: document.getElementById('produit').value,
+        quantite: document.getElementById('quantite').value,
+        date: document.getElementById('date').value,
+        message: document.getElementById('message').value
+    };
+    
+    // Validation supplémentaire
+    if (!formData.nom || !formData.prenom || !formData.telephone || !formData.email || !formData.adresse || !formData.produit || !formData.quantite) {
+        showMessage('Veuillez remplir tous les champs obligatoires', 'error');
+        return false;
+    }
+    
+    // Validation du téléphone (10 chiffres)
+    if (!/^[0-9]{10}$/.test(formData.telephone)) {
+        showMessage('Le numéro de téléphone doit contenir 10 chiffres', 'error');
+        return false;
+    }
+    
+    // Simulation d'envoi (remplacez par un vrai envoi AJAX)
+    showMessage('Votre commande a bien été envoyée ! Nous vous contacterons rapidement.', 'success');
+    
+    // Réinitialisation du formulaire après 3 secondes
+    setTimeout(() => {
+        document.getElementById('commande-form').reset();
+        document.getElementById('form-message').style.display = 'none';
+    }, 5000);
+    
+    return false;
+}
+
+function showMessage(message, type) {
+    const messageDiv = document.getElementById('form-message');
+    messageDiv.textContent = message;
+    messageDiv.style.display = 'block';
+    
+    if (type === 'error') {
+        messageDiv.style.backgroundColor = '#ffebee';
+        messageDiv.style.color = '#c62828';
+        messageDiv.style.border = '1px solid #ef9a9a';
+    } else {
+        messageDiv.style.backgroundColor = '#e8f5e9';
+        messageDiv.style.color = '#2e7d32';
+        messageDiv.style.border = '1px solid #a5d6a7';
+    }
+}
+</script>
 
 <!-- FAQ -->
 <section id="faq" class="section section-faq">
