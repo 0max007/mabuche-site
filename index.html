@@ -1101,77 +1101,135 @@
 <!-- FORMULAIRE DE COMMANDE -->
 <section id="commande" class="section-commande">
     <div class="commande-container">
-        <div class="commande-form encadre">
-            <div class="form-header">
-                <h2>Passer votre commande</h2>
-                <p>Remplissez ce formulaire et nous vous contacterons pour confirmer votre commande</p>
+        <div class="commande-form encadre" style="padding: 30px;">
+            <div class="form-header" style="margin-bottom: 30px;">
+                <h2 style="margin-bottom: 10px;">Passer votre commande</h2>
+                <p style="color: #666; font-size: 0.95em;">Remplissez ce formulaire et nous vous contacterons pour confirmer votre commande</p>
             </div>
             
-            <form id="commande-form">
-                <div class="form-grid">
+            <form id="commande-form" onsubmit="return submitForm(event)">
+                <div class="form-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
                     <div class="form-group">
-                        <label for="nom">Nom *</label>
-                        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+                        <label for="nom" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Nom *</label>
+                        <input type="text" id="nom" name="nom" required placeholder="Votre nom" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
                     <div class="form-group">
-                        <label for="prenom">Prénom *</label>
-                        <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+                        <label for="prenom" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Prénom *</label>
+                        <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
                     <div class="form-group">
-                        <label for="telephone">Téléphone *</label>
-                        <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78" pattern="[0-9]{10}">
+                        <label for="telephone" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Téléphone *</label>
+                        <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78" pattern="[0-9]{10}" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
                     <div class="form-group full-width">
-                        <label for="adresse">Adresse de livraison *</label>
-                        <textarea id="adresse" name="adresse" rows="3" required placeholder="Numéro, rue, code postal, ville"></textarea>
+                        <label for="adresse" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Adresse de livraison *</label>
+                        <textarea id="adresse" name="adresse" rows="3" required placeholder="Numéro, rue, code postal, ville" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; font-family: inherit;"></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="produit">Produit choisi *</label>
-                        <select id="produit" name="produit" required>
+                        <label for="produit" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Produit choisi *</label>
+                        <select id="produit" name="produit" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; background-color: white;">
                             <option value="">-- Sélectionnez --</option>
-                            <option value="Chêne 50 cm - 70€/stère">Chêne 50 cm - 70€/stère</option>
-                            <option value="Bois d'allumage - 5€/paquet">Bois d'allumage - 5€/paquet</option>
-                            <option value="Chêne 33 cm - 80€/stère">Chêne 33 cm - 80€/stère</option>
-                            <option value="Châtaignier 2 m - 55€/stère">Châtaignier 2 m - 55€/stère</option>
-                            <option value="Chêne Premium 50 cm - 78€/stère">Chêne Premium 50 cm - 78€/stère</option>
-                            <option value="Chêne Premium 33 cm - 88€/stère">Chêne Premium 33 cm - 88€/stère</option>
+                            <option value="Chêne 50 cm">Chêne 50 cm - 70€/stère</option>
+                            <option value="Bois d'allumage">Bois d'allumage - 5€/paquet</option>
+                            <option value="Chêne 33 cm">Chêne 33 cm - 80€/stère</option>
+                            <option value="Châtaignier 2 m">Châtaignier 2 m - 55€/stère</option>
+                            <option value="Chêne Premium 50 cm">Chêne Premium 50 cm - 78€/stère</option>
+                            <option value="Chêne Premium 33 cm">Chêne Premium 33 cm - 88€/stère</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="quantite">Quantité *</label>
-                        <input type="number" id="quantite" name="quantite" min="1" required placeholder="1">
+                        <label for="quantite" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Quantité *</label>
+                        <input type="number" id="quantite" name="quantite" min="1" required placeholder="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
                     <div class="form-group">
-                        <label for="date">Date de livraison souhaitée</label>
-                        <input type="date" id="date" name="date">
+                        <label for="date" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Date de livraison souhaitée</label>
+                        <input type="date" id="date" name="date" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
                     </div>
                     
                     <div class="form-group full-width">
-                        <label for="message">Informations complémentaires</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Informations supplémentaires (accès, horaires, etc.)"></textarea>
+                        <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Informations complémentaires</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Informations supplémentaires (accès, horaires, etc.)" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; font-family: inherit;"></textarea>
                     </div>
                 </div>
                 
-                <div class="form-submit">
-                    <button type="submit" class="btn btn-commande">Envoyer la commande</button>
+                <div class="form-submit" style="margin-top: 30px; text-align: center;">
+                    <button type="submit" class="btn btn-commande" style="background-color: #4CAF50; color: white; border: none; padding: 14px 28px; font-size: 1em; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">Envoyer la commande</button>
                 </div>
                 
-                <div id="form-message" class="form-message"></div>
+                <div id="form-message" class="form-message" style="margin-top: 20px; padding: 15px; border-radius: 4px; display: none;"></div>
             </form>
         </div>
     </div>
 </section>
+
+<script>
+function submitForm(event) {
+    event.preventDefault(); // Empêche l'envoi traditionnel du formulaire
+    
+    // Récupération des valeurs du formulaire
+    const formData = {
+        nom: document.getElementById('nom').value,
+        prenom: document.getElementById('prenom').value,
+        telephone: document.getElementById('telephone').value,
+        email: document.getElementById('email').value,
+        adresse: document.getElementById('adresse').value,
+        produit: document.getElementById('produit').value,
+        quantite: document.getElementById('quantite').value,
+        date: document.getElementById('date').value,
+        message: document.getElementById('message').value
+    };
+    
+    // Validation supplémentaire
+    if (!formData.nom || !formData.prenom || !formData.telephone || !formData.email || !formData.adresse || !formData.produit || !formData.quantite) {
+        showMessage('Veuillez remplir tous les champs obligatoires', 'error');
+        return false;
+    }
+    
+    // Validation du téléphone (10 chiffres)
+    if (!/^[0-9]{10}$/.test(formData.telephone)) {
+        showMessage('Le numéro de téléphone doit contenir 10 chiffres', 'error');
+        return false;
+    }
+    
+    // Simulation d'envoi (remplacez par un vrai envoi AJAX)
+    showMessage('Votre commande a bien été envoyée ! Nous vous contacterons rapidement.', 'success');
+    
+    // Réinitialisation du formulaire après 3 secondes
+    setTimeout(() => {
+        document.getElementById('commande-form').reset();
+        document.getElementById('form-message').style.display = 'none';
+    }, 5000);
+    
+    return false;
+}
+
+function showMessage(message, type) {
+    const messageDiv = document.getElementById('form-message');
+    messageDiv.textContent = message;
+    messageDiv.style.display = 'block';
+    
+    if (type === 'error') {
+        messageDiv.style.backgroundColor = '#ffebee';
+        messageDiv.style.color = '#c62828';
+        messageDiv.style.border = '1px solid #ef9a9a';
+    } else {
+        messageDiv.style.backgroundColor = '#e8f5e9';
+        messageDiv.style.color = '#2e7d32';
+        messageDiv.style.border = '1px solid #a5d6a7';
+    }
+}
+</script>
 
 <!-- FAQ -->
 <section id="faq" class="section section-faq">
@@ -1419,54 +1477,73 @@
         });
         
         // Formulaire de commande
-const commandeForm = document.getElementById('commande-form');
-const formMessage = document.getElementById('form-message');
-
-commandeForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Validation
-    const telephone = document.getElementById('telephone').value;
-    if (!/^[0-9]{10}$/.test(telephone)) {
-        showMessage('Le numéro de téléphone doit contenir 10 chiffres', 'error');
-        return;
-    }
-
-    // Récupération des données
-    const formData = {
-        nom: document.getElementById('nom').value,
-        prenom: document.getElementById('prenom').value,
-        telephone: telephone,
-        email: document.getElementById('email').value,
-        adresse: document.getElementById('adresse').value,
-        produit: document.getElementById('produit').value,
-        quantite: document.getElementById('quantite').value,
-        date: document.getElementById('date').value,
-        message: document.getElementById('message').value
-    };
-
-    // Affichage du message de confirmation
-    showMessage('Votre commande a bien été envoyée ! Nous vous contacterons rapidement pour confirmation.', 'success');
-    
-    // Réinitialisation après 5 secondes
-    setTimeout(() => {
-        commandeForm.reset();
-        formMessage.style.display = 'none';
-    }, 5000);
-});
-
-function showMessage(message, type) {
-    const messageDiv = document.getElementById('form-message');
-    messageDiv.textContent = message;
-    messageDiv.style.display = 'block';
-    
-    if (type === 'error') {
-        messageDiv.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
-        messageDiv.style.border = '1px solid #ff0000';
-        messageDiv.style.color = '#ff0000';
-    } else {
-        messageDiv.style.backgroundColor = 'rgba(0, 255, 0, 0.1)';
-        messageDiv.style.border = '1px solid #00ff00';
-        messageDiv.style.color = '#00aa00';
-    }
-}
+        const commandeForm = document.getElementById('commande-form');
+        const formMessage = document.getElementById('form-message');
+        
+        commandeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupération des données du formulaire
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Construction du corps de l'email
+            const emailBody = `
+                Nouvelle commande de ${data.prenom} ${data.nom}:
+                
+                Contact:
+                Téléphone: ${data.telephone}
+                Email: ${data.email}
+                
+                Adresse de livraison:
+                ${data.adresse}
+                
+                Commande:
+                Produit: ${data.produit}
+                Quantité: ${data.quantite}
+                Date souhaitée: ${data.date || 'Non spécifiée'}
+                
+                Informations complémentaires:
+                ${data.message || 'Aucune'}
+            `;
+            
+            // Envoi réel de l'email via Formspree
+            fetch("https://formspree.io/f/mabuche.team@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: `${data.prenom} ${data.nom}`,
+                    _replyto: data.email,
+                    phone: data.telephone,
+                    address: data.adresse,
+                    product: data.produit,
+                    quantity: data.quantite,
+                    date: data.date || 'Non spécifiée',
+                    message: data.message || 'Aucune',
+                    _subject: `Nouvelle commande de ${data.prenom} ${data.nom}`,
+                    body: emailBody
+                }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    formMessage.textContent = "Votre commande a bien été envoyée ! Nous vous contacterons rapidement pour confirmation.";
+                    formMessage.style.display = "block";
+                    formMessage.style.backgroundColor = "rgba(76, 175, 80, 0.2)";
+                    formMessage.style.color = "#4CAF50";
+                    commandeForm.reset();
+                } else {
+                    throw new Error('Erreur réseau');
+                }
+            })
+            .catch(error => {
+                formMessage.textContent = "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement par téléphone.";
+                formMessage.style.display = "block";
+                formMessage.style.backgroundColor = "rgba(255, 87, 34, 0.2)";
+                formMessage.style.color = "#F44336";
+            });
+        });
+    </script>
+</body>
+</html>
